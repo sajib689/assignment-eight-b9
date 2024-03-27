@@ -26,6 +26,7 @@ const BookDetails = () => {
   const handleWishList = book => {
     saveWishlists(book)
  }
+ 
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -88,8 +89,8 @@ const BookDetails = () => {
             </tbody>
           </table>
           <div className="mt-5 flex gap-3">
-        <Link onClick={() => handleBook(book)} className="btn btn-active">Read</Link>
-        <Link  onClick={() => handleWishList(book)} className="btn btn-active btn-primary">Wishlist</Link>
+        <Link onClick={() => handleBook(book)} className="btn btn-active hover:bg-[#23BE0A] hover:text-white">Read</Link>
+        <Link  onClick={() => handleWishList(book)} className="btn btn-active bg-[#50B1C9] hover:bg-[#19829c] text-white">Wishlist</Link>
 
 
         </div>

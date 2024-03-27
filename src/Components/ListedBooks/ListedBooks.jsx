@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const ListedBooks = () => {
   const [tabs, setTabs] = useState(0);
-
+    
   return (
     <section>
       <div className="bg-[#1313130D] font-bold p-5 rounded-lg text-center text-3xl">

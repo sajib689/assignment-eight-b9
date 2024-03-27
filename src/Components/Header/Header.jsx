@@ -27,7 +27,7 @@ const Header = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li className="font-bold">
-            <NavLink to='/' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Home</NavLink>
+            <NavLink activeClassName=""  to='/' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Home</NavLink>
           </li>
           <li className="font-bold">
             <NavLink to='/listbooks' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Listed Books</NavLink>
@@ -48,7 +48,7 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
         <li className="font-bold">
-            <NavLink to='/' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Home</NavLink>
+            <NavLink  to='/' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Home</NavLink>
           </li>
           <li className="font-bold">
             <NavLink to='/listbooks' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Listed Books</NavLink>
