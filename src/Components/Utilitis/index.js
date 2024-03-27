@@ -1,3 +1,4 @@
+
 import toast from "react-hot-toast";
 export const getBooks = () => {
     let books = [];
@@ -40,6 +41,11 @@ export const saveWishlists = wishlist => {
     localStorage.setItem('wishlists', JSON.stringify(wishlists))
     toast.success("Book Read successfully")
 
+}
+
+export const sortData = (data,d) => {
+    const sortBooks = [...data].sort((a, b) => b[d] - a[d])
+    return sortBooks
 }
 
 

@@ -1,8 +1,7 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { saveBooks,saveWishlists} from "../Utilitis";
 
-const BookDetails = () => {
-
+const ViewDetails = () => {
   const books = useLoaderData();
   const { bookId } = useParams();
   const bookInt = parseInt(bookId);
@@ -20,7 +19,7 @@ const BookDetails = () => {
     yearOfPublishing,
     totalPages,
   } = book;
-
+console.log(book)
   const handleBook = book => {
     saveBooks(book)
  }
@@ -102,4 +101,4 @@ const BookDetails = () => {
   );
 };
 
-export default BookDetails;
+export default ViewDetails;
