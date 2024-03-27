@@ -19,6 +19,7 @@ const BookDetails = () => {
     yearOfPublishing,
     totalPages,
   } = book;
+  
   const handleBook = book => {
     saveBooks(book)
  }

@@ -57,5 +57,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='container mx-auto'>
     <RouterProvider router={router} />
+    <Toaster/>
   </div>,
 )
