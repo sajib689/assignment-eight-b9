@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <ListedBooks/>, 
         children: [
           {
-            index: true,
+           
             path: "reads",
              element: <ReadBooks/>,
            },
