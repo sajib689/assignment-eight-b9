@@ -1,4 +1,5 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { saveBooks } from "../Utilitis";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -18,6 +19,9 @@ const BookDetails = () => {
     yearOfPublishing,
     totalPages,
   } = book;
+  const handleBook = book => {
+    saveBooks(book)
+ }
   console.log(book);
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
@@ -81,7 +85,7 @@ const BookDetails = () => {
             </tbody>
           </table>
           <div className="mt-5 flex gap-3">
-        <Link to={`listbooks/${bookInt}`} className="btn btn-active">Read</Link>
+        <Link onClick={() => handleBook(book)} className="btn btn-active">Read</Link>
         <button className="btn btn-active btn-primary">Wishlist</button>
 
 

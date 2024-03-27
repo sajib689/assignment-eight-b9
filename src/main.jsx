@@ -13,6 +13,7 @@ import BookDetails from './Components/BookDetails/BookDetails';
 import Error from './Components/Error/Error';
 import Contact from './Components/Contact/Contact';
 import About from './Components/About/About';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
