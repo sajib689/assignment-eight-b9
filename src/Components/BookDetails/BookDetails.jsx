@@ -1,5 +1,5 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { saveBooks } from "../Utilitis";
+import { saveBooks,saveWishlists} from "../Utilitis";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -22,6 +22,9 @@ const BookDetails = () => {
 
   const handleBook = book => {
     saveBooks(book)
+ }
+  const handleWishList = book => {
+    saveWishlists(book)
  }
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
@@ -86,7 +89,7 @@ const BookDetails = () => {
           </table>
           <div className="mt-5 flex gap-3">
         <Link onClick={() => handleBook(book)} className="btn btn-active">Read</Link>
-        <button className="btn btn-active btn-primary">Wishlist</button>
+        <Link  onClick={() => handleWishList(book)} className="btn btn-active btn-primary">Wishlist</Link>
 
 
         </div>
