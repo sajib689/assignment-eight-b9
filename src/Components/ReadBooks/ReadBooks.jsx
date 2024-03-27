@@ -1,20 +1,15 @@
-import { useLoaderData, useParams } from "react-router-dom";
 import { getBooks } from "../Utilitis";
 
 
+
 const ReadBooks = () => {
-    const books = useLoaderData();
-    const { bookId } = useParams();
-    const bookInt = parseInt(bookId);
-    const getbook = books.books;
-    const book = getbook.find((b) => b.bookId === bookInt);
-    
-  
-   const booksingle = getBooks(book)
-   console.log(booksingle)
+   const booksingle = getBooks()
+   const data = localStorage.getItem('books')
+   
+   console.log(JSON.parse(data));
     return (
         <div>
-            
+            <h1>Read the book</h1>
         </div>
     );
 };

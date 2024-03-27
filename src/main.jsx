@@ -29,7 +29,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/listbooks",
-        element: <ListedBooks/>
+        element: <ListedBooks/>, 
+        children: [
+          {
+            index: true,
+            path: "reads",
+             element: <ReadBooks/>,
+           },
+           {
+             path: "wishlists",
+             element: <WishlistBooks/>,
+           },
+        ]
       },
       {
         path: "/pagesread",
@@ -39,18 +50,7 @@ const router = createBrowserRouter([
         path: "/bookdetails/:bookId",
         element: <BookDetails/>,
         loader: () => fetch(`../public/book.json`),
-        children: [
-          {
-           index: true,
-            element: <ReadBooks/>,
-            loader: () => fetch(`../public/book.json`),
-          },
-          {
-            path: "wishlists",
-            element: <WishlistBooks/>,
-            loader: () => fetch(`../public/book.json`),
-          },
-        ]
+       
       },
       {
         path: "/contact",
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About/>
       },
-
+      
     ],
   },
 ]);
