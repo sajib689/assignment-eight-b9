@@ -16,6 +16,6 @@ export const saveBooks = book => {
     }
     books.push(book)
     localStorage.setItem('books', JSON.stringify(books))
-    toast.success("Book Bookmarked successfully")
+    toast.success("Book Read successfully")
 
 }

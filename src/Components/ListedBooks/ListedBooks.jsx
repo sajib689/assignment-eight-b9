@@ -20,7 +20,7 @@ const ListedBooks = () => {
         </Link>
         <Link
          onClick={() => setTabs(1)}
-         to=''
+         to={`wishlists`}
            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabs === 1 ? 'border border-b-0': 'border-b'} rounded-t-lg dark:border-gray-600 dark:text-gray-900`}
          >
          
