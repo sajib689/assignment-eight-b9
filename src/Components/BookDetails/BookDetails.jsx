@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -81,7 +81,7 @@ const BookDetails = () => {
             </tbody>
           </table>
           <div className="mt-5 flex gap-3">
-        <button className="btn btn-active">Read</button>
+        <Link to={`listbooks/${bookInt}`} className="btn btn-active">Read</Link>
         <button className="btn btn-active btn-primary">Wishlist</button>
 
 
