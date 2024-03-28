@@ -9,4 +9,4 @@ This is a simple Sajib Book react project. Here What I use ? I just  give you a 
 5. Install the react hot icon for icons
 6. Also use mambaui for pre ready components
 7. Install the react recharts
-8. In this website have hour menu list
+8. In this website have four menu list
