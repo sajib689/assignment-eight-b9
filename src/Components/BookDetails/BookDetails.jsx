@@ -1,14 +1,20 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
-import {  getBooks, getWishlist, saveBooks,saveWishlists} from "../Utilitis";
+import {
+  Link,
+  useLoaderData,
+  useNavigation,
+  useParams,
+} from "react-router-dom";
+import { getBooks, getWishlist, saveBooks, saveWishlists } from "../Utilitis";
 import toast from "react-hot-toast";
+import { Loader } from "react-form-component";
 
 const BookDetails = () => {
-
   const books = useLoaderData();
   const { bookId } = useParams();
   const bookInt = parseInt(bookId);
   const getbook = books.books;
-  const book = getbook.find((b) => b.bookId === bookInt);
+  const navigation = useNavigation();
+  const book = getbook?.find((b) => b.bookId === bookInt);
   const {
     bookName,
     author,
@@ -20,12 +26,14 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
     totalPages,
-  } = book;
+  } = book || {};
   const savedBooks = getBooks();
   const savedWishlists = getWishlist();
 
   const handleBook = (book) => {
-    const isExistingInWishlist = savedWishlists.find((b) => b.bookId === book.bookId);
+    const isExistingInWishlist = savedWishlists.find(
+      (b) => b.bookId === book.bookId
+    );
     if (isExistingInWishlist) {
       return toast.error("Already saved in wishlist!");
     }
@@ -39,6 +47,7 @@ const BookDetails = () => {
     }
     saveWishlists(book);
   };
+  if (navigation.state === "loading") return <Loader />;
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -63,7 +72,7 @@ const BookDetails = () => {
             <span>Review:</span> {review}
           </p>
           <div className="flex gap-4 mt-4 mb-4">
-            {tags.map((tag) => (
+            {tags && tags.length > 0 && tags?.map((tag) => (
               <button key={tag} className="btn btn-sm text-[#23BE0A]">
                 {tag}
               </button>
@@ -81,15 +90,15 @@ const BookDetails = () => {
               <tr>
                 <td>Publisher: </td>
                 <td>
-                  <span className="text-[#131313] font-bold">
-                    {publisher}
-                  </span>
+                  <span className="text-[#131313] font-bold">{publisher}</span>
                 </td>
               </tr>
               <tr>
                 <td>Year of Publishing:</td>
                 <td>
-                  <span className="text-[#131313] font-bold">{yearOfPublishing}</span>
+                  <span className="text-[#131313] font-bold">
+                    {yearOfPublishing}
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -101,13 +110,20 @@ const BookDetails = () => {
             </tbody>
           </table>
           <div className="mt-5 flex gap-3">
-        <Link onClick={() => handleBook(book)} className="btn btn-active hover:bg-[#23BE0A] hover:text-white">Read</Link>
-        <Link  onClick={() => handleWishlist(book)} className="btn btn-active bg-[#50B1C9] hover:bg-[#19829c] text-white">Wishlist</Link>
-
-
+            <Link
+              onClick={() => handleBook(book)}
+              className="btn btn-active hover:bg-[#23BE0A] hover:text-white"
+            >
+              Read
+            </Link>
+            <Link
+              onClick={() => handleWishlist(book)}
+              className="btn btn-active bg-[#50B1C9] hover:bg-[#19829c] text-white"
+            >
+              Wishlist
+            </Link>
+          </div>
         </div>
-        </div>
-      
       </div>
     </section>
   );

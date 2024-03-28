@@ -8,7 +8,7 @@ const Books = () => {
     const [books, setBooks] = useState([])
     const navigation = useNavigation()
     useEffect(() => {
-        fetch('book.json')
+        fetch('./book.json')
         .then(res => res.json())
         .then(data => setBooks(data.books))
     },[])
