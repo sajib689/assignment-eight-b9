@@ -50,7 +50,7 @@ const ReadBookCard = ({ book }) => {
           <div className="mt-3 flex justify-start items-start gap-5">
             <button className="btn btn-sm text-[#328EFF]">Category: {category}</button>
             <button className="btn btn-sm text-[#FFAC33]">Rating: {rating}</button>
-            <Link to={`bookdetails/${bookId}`} className="btn btn-sm bg-[#23BE0A] text-white">View Details</Link>
+            <Link to={`/bookdetails/${bookId}`} className="btn btn-sm bg-[#23BE0A] text-white">View Details</Link>
           </div>
         </div>
       </div>
