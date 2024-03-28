@@ -9,6 +9,18 @@ export const getBooks = () => {
     return books
 }
 
+
+
+// for wishlist
+export const getWishlist = () => {
+    let wishlists = [];
+    const storageBooks =localStorage.getItem('wishlists')
+    if(storageBooks) {
+        wishlists = JSON.parse(storageBooks)
+    }
+    return wishlists
+}
+
 export const saveBooks = book => {
     let books = getBooks()
     const isExiting = books.find(b => b.bookId === book.bookId)
@@ -19,16 +31,6 @@ export const saveBooks = book => {
     localStorage.setItem('books', JSON.stringify(books))
     toast.success("Book Read successfully")
 
-}
-
-// for wishlist
-export const getWishlist = () => {
-    let wishlists = [];
-    const storageBooks =localStorage.getItem('wishlists')
-    if(storageBooks) {
-        wishlists = JSON.parse(storageBooks)
-    }
-    return wishlists
 }
 
 export const saveWishlists = wishlist => {
@@ -42,6 +44,8 @@ export const saveWishlists = wishlist => {
     toast.success("Book Read successfully")
 
 }
+
+
 
 export const sortData = (data,d) => {
     const sortBooks = [...data].sort((a, b) => b[d] - a[d])

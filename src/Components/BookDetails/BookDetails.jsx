@@ -1,5 +1,6 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { saveBooks,saveWishlists} from "../Utilitis";
+import {  getBooks, getWishlist, saveBooks,saveWishlists} from "../Utilitis";
+import toast from "react-hot-toast";
 
 const BookDetails = () => {
 
@@ -20,14 +21,24 @@ const BookDetails = () => {
     yearOfPublishing,
     totalPages,
   } = book;
+  const savedBooks = getBooks();
+  const savedWishlists = getWishlist();
 
-  const handleBook = book => {
-    saveBooks(book)
- }
-  const handleWishList = book => {
-    saveWishlists(book)
- }
- 
+  const handleBook = (book) => {
+    const isExistingInWishlist = savedWishlists.find((b) => b.bookId === book.bookId);
+    if (isExistingInWishlist) {
+      return toast.error("Already saved in wishlist!");
+    }
+    saveBooks(book);
+  };
+
+  const handleWishlist = (book) => {
+    const isExistingInBooks = savedBooks.find((b) => b.bookId === book.bookId);
+    if (isExistingInBooks) {
+      return toast.error("Already saved in books!");
+    }
+    saveWishlists(book);
+  };
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -91,7 +102,7 @@ const BookDetails = () => {
           </table>
           <div className="mt-5 flex gap-3">
         <Link onClick={() => handleBook(book)} className="btn btn-active hover:bg-[#23BE0A] hover:text-white">Read</Link>
-        <Link  onClick={() => handleWishList(book)} className="btn btn-active bg-[#50B1C9] hover:bg-[#19829c] text-white">Wishlist</Link>
+        <Link  onClick={() => handleWishlist(book)} className="btn btn-active bg-[#50B1C9] hover:bg-[#19829c] text-white">Wishlist</Link>
 
 
         </div>
