@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Loader } from "react-form-component";
+import { Link, Outlet, useNavigation } from "react-router-dom";
 
 const ListedBooks = () => {
   const [tabs, setTabs] = useState(0);
-    
+  
+  const navigation = useNavigation()
+  if(navigation.state === 'loading') return <Loader/>
   return (
     <section>
       <div className="bg-[#1313130D] font-bold p-5 rounded-lg text-center text-3xl">

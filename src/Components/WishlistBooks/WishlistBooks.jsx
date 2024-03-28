@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import {  getWishlist, sortData } from "../Utilitis";
 import ReadBookCard from "../ReadBookCard/ReadBookCard";
+import { useNavigation } from "react-router-dom";
+import { Loader } from "react-form-component";
 
 const WishlistBooks = () => {
     const [books, setBooks] = useState([]);
@@ -13,6 +15,8 @@ const WishlistBooks = () => {
     const sortedBooks = sortData(books, selectedValue);
     setBooks(sortedBooks);
   }
+  const navigation = useNavigation()
+  if(navigation.state === 'loading') return <Loader/>
     return (
       <>
        {/* select for filter or sort */}

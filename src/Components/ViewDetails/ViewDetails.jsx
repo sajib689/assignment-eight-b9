@@ -1,5 +1,6 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useNavigation, useParams } from "react-router-dom";
 import { saveBooks,saveWishlists} from "../Utilitis";
+import { Loader } from "react-form-component";
 
 const ViewDetails = () => {
   const books = useLoaderData();
@@ -7,6 +8,8 @@ const ViewDetails = () => {
   const bookInt = parseInt(bookId);
   const getbook = books.books;
   const book = getbook.find((b) => b.bookId === bookInt);
+  const navigation = useNavigation()
+  if(navigation.state === 'loading') return <Loader/>
   const {
     bookName,
     author,
