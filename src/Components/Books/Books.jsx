@@ -14,7 +14,7 @@ const Books = () => {
     },[])
     if(navigation.state === 'loading') return <Loader/>
     return (
-        <div className="grid grid-cols md:grid-cols-3 gap-4">
+        <div className="grid grid-cols md:grid-cols-3 gap-4 justify-center items-center">
             {
                 books.map(book => <BookCard key={book.bookId} book={book}></BookCard>)
             }

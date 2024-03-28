@@ -7,7 +7,7 @@ const BookCard = ({book}) => {
   return (
     <Link
     to={`bookdetails/${bookId}`}
-     className="card card-compact md:w-[374px] bg-base-100 shadow-xl">
+     className="card card-compact md:w-[374px] w-[300px] bg-base-100 shadow-xl">
       <figure>
         <img
           src={image}
