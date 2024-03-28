@@ -1,8 +1,12 @@
-# React + Vite
+Live Link:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple react project. Here What I use ? I just want to give you a short description.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. First create the react project
+2. Install the react router dom for routing.
+3. Install the react tailwind css for design ui
+4. For more wonderfull ui here I use daisy ui
+5. Install the react hot icon for icons
+6. Also use mambaui for pre ready components
+7. Install the react recharts
+8. In this website have hour menu list
