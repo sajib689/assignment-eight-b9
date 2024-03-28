@@ -68,17 +68,17 @@ const BookDetails = () => {
                 </td>
               </tr>
               <tr>
-                <td>Publisher:</td>
+                <td>Publisher: </td>
                 <td>
                   <span className="text-[#131313] font-bold">
-                    {yearOfPublishing}
+                    {publisher}
                   </span>
                 </td>
               </tr>
               <tr>
                 <td>Year of Publishing:</td>
                 <td>
-                  <span className="text-[#131313] font-bold">{publisher}</span>
+                  <span className="text-[#131313] font-bold">{yearOfPublishing}</span>
                 </td>
               </tr>
               <tr>
