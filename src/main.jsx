@@ -29,11 +29,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <PrivateRoute><Home/></PrivateRoute>
       },
       {
         path: "/bookdetails/:bookId",
-        element: <BookDetails/>,
+        element: <PrivateRoute><BookDetails/></PrivateRoute>,
         loader: () => fetch(`/book.json`),
        
       },
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/pagesread",
-        element: <PagesToRead/>
+        element: <PrivateRoute><PagesToRead/></PrivateRoute>
       },
     
       {
