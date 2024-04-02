@@ -16,6 +16,9 @@ import About from './Components/About/About';
 import { Toaster } from 'react-hot-toast';
 import ReadBooks from './Components/ReadBooks/ReadBooks';
 import WishlistBooks from './Components/WishlistBooks/WishlistBooks';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
+import AuthProvider from './Provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -62,6 +65,14 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About/>
       },
+      {
+        path: "/login",
+        element: <Login/>
+      },
+      {
+        path: "/register",
+        element: <Register/>
+      },
      
       
     ],
@@ -70,7 +81,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='container mx-auto'>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
     <Toaster/>
   </div>,
 )

@@ -41,6 +41,12 @@ const Header = () => {
           <li className="font-bold">
             <NavLink to='/about' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>About Us</NavLink>
           </li>
+          <li className="font-bold">
+            <NavLink to='/login' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Login</NavLink>
+          </li>
+          <li className="font-bold">
+            <NavLink to='/register' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Register</NavLink>
+          </li>
           </ul>
         </div>
         <Link className=" text-2xl text-[#131313] font-bold">Sajib Book</Link>
@@ -61,6 +67,12 @@ const Header = () => {
           </li>
           <li className="font-bold">
             <NavLink to='/about' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>About Us</NavLink>
+          </li>
+          <li className="font-bold">
+            <NavLink to='/login' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Login</NavLink>
+          </li>
+          <li className="font-bold">
+            <NavLink to='/register' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Register</NavLink>
           </li>
         </ul>
       </div>
