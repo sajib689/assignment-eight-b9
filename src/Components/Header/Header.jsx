@@ -1,7 +1,30 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Header = () => {
- 
+ const {user,logOut} = useContext(AuthContext)
+ const handleLogOut = () => {
+  logOut()
+  .then(() => {
+    Swal.fire({
+      position: "top-center",
+      icon: "success",
+      title: "Sign Out Successfully",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  })
+  .catch(err => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `${err.message}`,
+      footer: '<a href="#">Why do I have this issue?</a>'
+    });
+  })
+ }
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -41,12 +64,7 @@ const Header = () => {
           <li className="font-bold">
             <NavLink to='/about' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>About Us</NavLink>
           </li>
-          <li className="font-bold">
-            <NavLink to='/login' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Login</NavLink>
-          </li>
-          <li className="font-bold">
-            <NavLink to='/register' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Register</NavLink>
-          </li>
+         
           </ul>
         </div>
         <Link className=" text-2xl text-[#131313] font-bold">Sajib Book</Link>
@@ -68,17 +86,22 @@ const Header = () => {
           <li className="font-bold">
             <NavLink to='/about' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>About Us</NavLink>
           </li>
-          <li className="font-bold">
-            <NavLink to='/login' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Login</NavLink>
-          </li>
-          <li className="font-bold">
-            <NavLink to='/register' className={({isActive}) => isActive ? 'font-bold border border-[#23BE0A] text-[#23BE0A] hover:text-[#23BE0A]' : 'font-bold'}>Register</NavLink>
-          </li>
+         
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-[#23BE0A] text-white me-2">Sign In</a>
-        <a className="btn bg-[#59C6D2] text-white">Sign Up</a>
+        {
+          user ? 
+          <Link onClick={handleLogOut} className="btn bg-[#23BE0A] text-white me-2">Sign Out</Link>
+          
+          :
+        <>
+        <Link to='/login' className="btn bg-[#23BE0A] text-white me-2">Sign In</Link>
+        <Link to='/register' className="btn bg-[#59C6D2] text-white">Sign Up</Link>
+        </>
+        }
+        
+        
       </div>
     </div>
   );

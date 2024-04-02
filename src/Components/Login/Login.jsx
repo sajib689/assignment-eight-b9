@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const {login} = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target
@@ -21,6 +23,7 @@ const Login = () => {
                     timer: 1500
                   });
             }
+            navigate('/')
         })
     }
   return (

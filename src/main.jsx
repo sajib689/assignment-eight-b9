@@ -19,6 +19,7 @@ import WishlistBooks from './Components/WishlistBooks/WishlistBooks';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import AuthProvider from './Provider/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -43,11 +44,11 @@ const router = createBrowserRouter([
           {
            
             index: true,
-             element: <ReadBooks/>,
+             element: <PrivateRoute><ReadBooks/></PrivateRoute>,
            },
            {
              path: "wishlists",
-             element: <WishlistBooks/>,
+             element: <PrivateRoute><WishlistBooks/></PrivateRoute>,
            },
        
         ]

@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
     const {register} = useContext(AuthContext)
+    const navigate = useNavigate()
     const handlerRegister = e => {
         e.preventDefault();
         const form = e.target 
-        const name = form.name.value 
         const email = form.email.value
         const password = form.password.value
         register(email, password)
@@ -23,6 +23,7 @@ const Register = () => {
                     timer: 1500
                   });
             }
+            navigate('/')
         })
         .catch( err => {
             if(err) {
