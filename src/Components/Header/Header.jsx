@@ -4,7 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Header = () => {
- const {user,logOut} = useContext(AuthContext)
+ const {user,logOut,setUser} = useContext(AuthContext)
  const handleLogOut = () => {
   logOut()
   .then(() => {
@@ -15,7 +15,9 @@ const Header = () => {
       showConfirmButton: false,
       timer: 1500
     });
+    setUser(null)
   })
+  
   .catch(err => {
     Swal.fire({
       icon: "error",
@@ -24,6 +26,7 @@ const Header = () => {
       footer: '<a href="#">Why do I have this issue?</a>'
     });
   })
+  
  }
   return (
     <div className="navbar bg-base-100">
@@ -90,6 +93,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <p>{user?.email}</p>
         {
           user ? 
           <Link onClick={handleLogOut} className="btn bg-[#23BE0A] text-white me-2">Sign Out</Link>

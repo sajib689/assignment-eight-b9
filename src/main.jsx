@@ -39,16 +39,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/listbooks",
-        element: <ListedBooks/>, 
+        element: <PrivateRoute><ListedBooks/></PrivateRoute>, 
         children: [
           {
            
             index: true,
-             element: <PrivateRoute><ReadBooks/></PrivateRoute>,
+             element: <ReadBooks/>,
            },
            {
              path: "wishlists",
-             element: <PrivateRoute><WishlistBooks/></PrivateRoute>,
+             element: <WishlistBooks/>,
            },
        
         ]
@@ -83,7 +83,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='container mx-auto'>
     <AuthProvider>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}>
+      
+    </RouterProvider>
     </AuthProvider>
     <Toaster/>
   </div>,

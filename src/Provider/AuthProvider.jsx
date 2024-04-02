@@ -17,6 +17,7 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
     useEffect(() => {
@@ -35,7 +36,8 @@ const AuthProvider = ({children}) => {
         loading,
         register,
         login,
-        logOut
+        logOut,
+        setUser
     }
     return (
         <AuthContext.Provider value={authInfo}>
