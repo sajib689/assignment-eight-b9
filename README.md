@@ -2,7 +2,7 @@
 
 Welcome to Sajib Book, your go-to destination for exploring and managing your book collection.
 
-Live Site URL: [https://66059a91dc0d7834965f7215--astounding-rabanadas-6c2816.netlify.app](https://66059a91dc0d7834965f7215--astounding-rabanadas-6c2816.netlify.app)
+Live Site URL: [https://660bd4f6c89bc8b7407f5ae0--eclectic-arithmetic-ca52c8.netlify.app/](https://660bd4f6c89bc8b7407f5ae0--eclectic-arithmetic-ca52c8.netlify.app/)
 
 ## Features and Characteristics
 
