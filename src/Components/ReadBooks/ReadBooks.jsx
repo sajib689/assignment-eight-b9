@@ -8,12 +8,12 @@ const ReadBooks = () => {
     const storeBooks = getBooks();
     setBooks(storeBooks);
   }, []);
-
  const handleSort = (event) => {
     const selectedValue = event.target.value;
     const sortedBooks = sortData(books, selectedValue);
     setBooks(sortedBooks);
   }
+
   return (
     <>
     {/* select for filter or sort */}

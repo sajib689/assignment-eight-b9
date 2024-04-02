@@ -17,6 +17,7 @@ const ReadBookCard = ({ book }) => {
     yearOfPublishing,
     totalPages,
   } = book;
+  
   return (
     <div className="hero md:w-[800px] w-[350px] m-2">
       <div className="hero-content justify-start items-start flex-col lg:flex-row">
