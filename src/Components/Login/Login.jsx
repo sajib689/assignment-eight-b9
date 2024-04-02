@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const {login} = useContext(AuthContext)
@@ -63,9 +63,9 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <Link to='/register' className="label-text-alt link link-hover">
+                  Do you want register?
+                </Link>
               </label>
             </div>
             <div className="form-control mt-6">
